@@ -76,10 +76,10 @@ export const testimonials = [
 ];
 
 export const igHighlights = [
-  { label: 'landing page', img: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=100&h=100&fit=crop&q=80' },
-  { label: 'Highlights', img: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=100&h=100&fit=crop&q=80' },
-  { label: 'Web.client', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&h=100&fit=crop&q=80' },
-  { label: 'Flp 2.0', img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=100&h=100&fit=crop&q=80' },
+  { label: 'Leads', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop&q=80' },
+  { label: 'Meta Ads', img: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=200&h=200&fit=crop&q=80' },
+  { label: 'Clients', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop&q=80' },
+  { label: 'Results', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&q=80' },
 ];
 
 export const whatsappLink = 'https://wa.me/917206523178?text=Hi%20Vijay%2C%20I%20just%20visited%20your%20website%20and%20I%20want%20to%20learn%20more%20about%20your%20mentorship.';

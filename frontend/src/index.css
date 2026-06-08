@@ -186,26 +186,64 @@ body {
   animation: marquee 30s linear infinite;
 }
 
-/* Coach photo crop */
+/* Coach photo crop - tuned to show face properly, hides IG UI top + bottom */
 .coach-photo {
   background-repeat: no-repeat;
-  background-size: 150%;
-  background-position: 50% 30%;
-  transition: background-size 0.6s ease, background-position 0.6s ease;
+  background-size: 200%;
+  background-position: 50% 28%;
+  transition: background-size 0.7s ease, background-position 0.7s ease, filter 0.5s ease;
+  filter: saturate(1.05) contrast(1.02);
 }
 .coach-photo:hover {
-  background-size: 160%;
-  background-position: 50% 28%;
+  background-size: 215%;
+  background-position: 50% 26%;
 }
 
-/* Spotlight on text */
-.text-spotlight {
-  background: linear-gradient(120deg, #4a1024 0%, #8a2042 50%, #4a1024 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: bg-shift 6s ease-in-out infinite;
+/* IG profile avatar - face only crop */
+.coach-avatar {
+  background-repeat: no-repeat;
+  background-size: 240%;
+  background-position: 48% 30%;
+  transition: background-size 0.4s ease;
+}
+.coach-avatar:hover {
+  background-size: 260%;
+}
+
+/* Shimmer overlay on photo */
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+.shimmer-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  animation: shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle breathing scale */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+.breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+/* Story ring rotation */
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.ring-rotate {
+  animation: ring-rotate 8s linear infinite;
 }
 
 .scroll-snap-x {
