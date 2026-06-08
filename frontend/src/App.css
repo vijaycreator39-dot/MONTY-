@@ -1,4 +1,23 @@
 .App {
   min-height: 100vh;
-  background: #fbf4ee;
+  position: relative;
+}
+.App::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #fbf4ee 0%, #f8ece1 35%, #faf2e8 65%, #fbf4ee 100%);
+  background-size: 240% 240%;
+  animation: bg-shift 24s ease-in-out infinite;
+  z-index: -2;
+}
+.App::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(243, 216, 184, 0.45) 0%, transparent 40%),
+    radial-gradient(circle at 80% 75%, rgba(245, 213, 184, 0.4) 0%, transparent 45%);
+  z-index: -1;
+  pointer-events: none;
 }

@@ -83,6 +83,131 @@ body {
   animation: float-dot 4s ease-in-out infinite;
 }
 
+/* Animated background blobs */
+@keyframes blob-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.05); }
+  66% { transform: translate(-30px, 25px) scale(0.97); }
+}
+@keyframes blob-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(1.08); }
+}
+@keyframes blob-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -50px) scale(1.1); }
+}
+.blob-1 { animation: blob-float-1 18s ease-in-out infinite; }
+.blob-2 { animation: blob-float-2 22s ease-in-out infinite; }
+.blob-3 { animation: blob-float-3 25s ease-in-out infinite; }
+
+/* Gradient sweep on global bg */
+@keyframes bg-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.bg-animated {
+  background: linear-gradient(120deg, #fbf4ee 0%, #f8ece1 35%, #faf2e8 65%, #fbf4ee 100%);
+  background-size: 240% 240%;
+  animation: bg-shift 20s ease-in-out infinite;
+}
+
+/* 3D Card tilt */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  will-change: transform;
+}
+.card-3d:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-3deg);
+  box-shadow: 0 30px 60px -20px rgba(74, 16, 36, 0.25);
+}
+
+/* Shine button effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  z-index: 0;
+}
+.btn-shine:hover::after {
+  left: 150%;
+}
+.btn-shine > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glow pulse for primary CTAs */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 10px 30px -8px rgba(16, 185, 129, 0.5), 0 0 0 0 rgba(16, 185, 129, 0.35); }
+  50% { box-shadow: 0 15px 40px -8px rgba(16, 185, 129, 0.6), 0 0 0 10px rgba(16, 185, 129, 0); }
+}
+.glow-green {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Lift on hover */
+.lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -15px rgba(74, 16, 36, 0.28);
+}
+
+/* Reveal animation */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Marquee for partners */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+/* Coach photo crop */
+.coach-photo {
+  background-repeat: no-repeat;
+  background-size: 150%;
+  background-position: 50% 30%;
+  transition: background-size 0.6s ease, background-position 0.6s ease;
+}
+.coach-photo:hover {
+  background-size: 160%;
+  background-position: 50% 28%;
+}
+
+/* Spotlight on text */
+.text-spotlight {
+  background: linear-gradient(120deg, #4a1024 0%, #8a2042 50%, #4a1024 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: bg-shift 6s ease-in-out infinite;
+}
+
 .scroll-snap-x {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;

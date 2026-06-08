@@ -83,3 +83,7 @@ export const igHighlights = [
 ];
 
 export const whatsappLink = 'https://wa.me/917206523178?text=Hi%20Vijay%2C%20I%20just%20visited%20your%20website%20and%20I%20want%20to%20learn%20more%20about%20your%20mentorship.';
+export const whatsappNumber = '917206523178';
+export const instagramLink = 'https://www.instagram.com/vijayadz_';
+export const coachPhoto = 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/w17omu68_Screenshot_20251223_223944.jpeg';
+
