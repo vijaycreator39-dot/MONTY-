@@ -186,17 +186,15 @@ body {
   animation: marquee 30s linear infinite;
 }
 
-/* Coach photo crop - tuned to show face properly, hides IG UI top + bottom */
+/* Coach photo - show FULL image without cropping */
 .coach-photo {
   background-repeat: no-repeat;
-  background-size: 200%;
-  background-position: 50% 28%;
-  transition: background-size 0.7s ease, background-position 0.7s ease, filter 0.5s ease;
-  filter: saturate(1.05) contrast(1.02);
+  background-size: contain;
+  background-position: center center;
+  transition: transform 0.6s ease;
 }
 .coach-photo:hover {
-  background-size: 215%;
-  background-position: 50% 26%;
+  transform: scale(1.02);
 }
 
 /* IG profile avatar - face only crop */
