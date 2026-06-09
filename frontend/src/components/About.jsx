@@ -18,28 +18,23 @@ const About = () => {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start">
         {/* Left: Photo + IG card */}
         <div className="flex flex-col gap-5 sm:gap-8">
-          {/* Photo card - shows full image without cropping */}
+          {/* Photo card - clean, just the photo */}
           <div className="relative card-3d group">
             {/* glowing border ring */}
             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-[#4a1024]/40 via-[#d4a574]/40 to-[#4a1024]/40 opacity-60 blur-md group-hover:opacity-90 transition-opacity duration-500" />
-            <div className="relative rounded-2xl overflow-hidden shadow-card bg-gradient-to-br from-[#2a0812] via-[#3a0e1c] to-[#4a1024] shimmer-overlay">
-              <div
-                className="coach-photo breathe w-full"
-                style={{
-                  backgroundImage: `url(${coachPhoto})`,
-                  aspectRatio: '9 / 16',
-                  maxHeight: '720px',
-                }}
-                role="img"
-                aria-label="Coach Vijay Ramawat"
+            <div className="relative rounded-2xl overflow-hidden shadow-card">
+              <img
+                src={coachPhoto}
+                alt="Coach Vijay Ramawat"
+                className="block w-full h-auto breathe"
               />
-              {/* Soft bottom vignette for label contrast */}
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none" />
               {/* Floating verified badge */}
               <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/90 backdrop-blur px-2.5 py-1 rounded-full shadow-soft">
                 <BadgeCheck size={13} className="text-emerald-600" />
                 <span className="text-[10px] font-semibold text-[#1a0d12]/80 tracking-wide">Verified Coach</span>
               </div>
+              {/* Soft bottom vignette for label contrast */}
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none" />
               <div className="absolute left-3 right-3 sm:left-4 sm:right-4 bottom-3 sm:bottom-4 bg-white/95 backdrop-blur rounded-xl px-4 sm:px-5 py-3 sm:py-4 shadow-soft">
                 <p className="text-[9px] sm:text-[10px] tracking-[0.22em] uppercase font-semibold text-[#1a0d12]/50">
                   Skill Coach &amp; Mentor
