@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import HowItWorks from './components/HowItWorks';
+import Achievements from './components/Achievements';
 import StudentResults from './components/StudentResults';
 import SignupForm from './components/SignupForm';
 import Footer from './components/Footer';
@@ -16,7 +16,7 @@ const Landing = () => (
     <main>
       <Hero />
       <About />
-      <HowItWorks />
+      <Achievements />
       <StudentResults />
       <SignupForm />
     </main>

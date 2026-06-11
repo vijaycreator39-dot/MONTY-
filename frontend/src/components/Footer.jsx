@@ -1,6 +1,6 @@
 import React from 'react';
 import { MessageCircle, Instagram } from 'lucide-react';
-import { whatsappLink, instagramLink } from '../mock';
+import { whatsappLink, instagramLink, openWhatsapp } from '../mock';
 
 const Footer = () => {
   return (
@@ -31,6 +31,7 @@ const Footer = () => {
             </a>
             <a
               href={whatsappLink}
+              onClick={openWhatsapp}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -49,6 +50,7 @@ const Footer = () => {
       {/* Floating WhatsApp button */}
       <a
         href={whatsappLink}
+        onClick={openWhatsapp}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-[0_15px_40px_-10px_rgba(16,185,129,0.6)] hover:scale-110 transition-transform glow-green"

@@ -244,6 +244,17 @@ body {
   animation: ring-rotate 8s linear infinite;
 }
 
+/* Floating tag animation */
+@keyframes tag-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
+}
+.tag-float {
+  animation: tag-float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Floating tag animation */
 .scroll-snap-x {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;

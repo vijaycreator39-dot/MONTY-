@@ -13,7 +13,8 @@ const Header = () => {
 
   const links = [
     { label: 'About', href: '#about' },
-    { label: 'How It Works', href: '#how' },
+    { label: 'Achievements', href: '#achievements' },
+    { label: 'Results', href: '#results' },
     { label: 'Join', href: '#signup' },
   ];
 
