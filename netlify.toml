@@ -1,12 +1,13 @@
 [build]
   base = "frontend"
-  command = "yarn install --frozen-lockfile=false && yarn build"
+  command = "yarn install && yarn build"
   publish = "build"
 
 [build.environment]
   NODE_VERSION = "20"
+  YARN_VERSION = "1.22.22"
   CI = "false"
-  REACT_APP_BACKEND_URL = ""
+  GENERATE_SOURCEMAP = "false"
 
 # SPA fallback so React Router works on Netlify
 [[redirects]]
