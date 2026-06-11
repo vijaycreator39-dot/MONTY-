@@ -89,7 +89,7 @@ export const achievements = [
 
 export const whatsappNumber = '917206523178';
 export const instagramLink = 'https://www.instagram.com/vijayadz_';
-export const coachPhoto = 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/w17omu68_Screenshot_20251223_223944.jpeg';
+export const coachPhoto = 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/4srb30xz_WhatsApp%20Image%202026-06-11%20at%2016.34.06.jpeg';
 
 // Rotating professional English greetings — picked randomly each time WhatsApp is opened.
 export const whatsappGreetings = [

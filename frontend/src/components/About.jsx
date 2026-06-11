@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { MessageCircle, ArrowRight, Instagram, ExternalLink, BadgeCheck, Target, Users, GraduationCap, TrendingUp } from 'lucide-react';
 import { igHighlights, instagramLink, coachPhoto, expertiseTags, openWhatsapp, whatsappLink } from '../mock';
 
 const iconMap = { Target, Users, GraduationCap, TrendingUp };
 
 const About = () => {
+  const tiltRef = useRef(null);
+
+  const onMove = (e) => {
+    const el = tiltRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const ry = (x - 0.5) * 14;
+    const rx = -(y - 0.5) * 14;
+    el.style.setProperty('--rx', `${rx}deg`);
+    el.style.setProperty('--ry', `${ry}deg`);
+    el.style.setProperty('--mx', `${x * 100}%`);
+    el.style.setProperty('--my', `${y * 100}%`);
+  };
+  const onLeave = () => {
+    const el = tiltRef.current;
+    if (!el) return;
+    el.style.setProperty('--rx', `0deg`);
+    el.style.setProperty('--ry', `0deg`);
+  };
+
   return (
     <section id="about" className="relative py-12 sm:py-20 overflow-hidden">
       {/* Decorative blobs */}
@@ -16,35 +38,42 @@ const About = () => {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        {/* LEFT: Compact face photo + IG card */}
+        {/* LEFT: 3D tilt photo + IG card */}
         <div className="flex flex-col gap-5">
-          {/* Photo card — square, face-centered crop */}
-          <div className="relative card-3d group mx-auto w-full max-w-[280px] sm:max-w-[320px]">
-            {/* glow ring */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#4a1024]/40 via-[#d4a574]/45 to-[#4a1024]/40 opacity-60 blur-md group-hover:opacity-90 transition-opacity duration-500" />
+          {/* 3D Photo card */}
+          <div
+            ref={tiltRef}
+            onMouseMove={onMove}
+            onMouseLeave={onLeave}
+            className="tilt-3d relative group mx-auto w-full max-w-[280px] sm:max-w-[320px]"
+            style={{ '--rx': '0deg', '--ry': '0deg' }}
+          >
+            {/* Deep shadow behind */}
+            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-[#4a1024]/35 via-[#d4a574]/40 to-[#4a1024]/35 opacity-70 blur-xl group-hover:opacity-100 transition-opacity duration-500 tilt-layer" style={{ '--depth': '-30px' }} />
 
-            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-card bg-[#1a0d12]">
+            <div className="relative aspect-square rounded-2xl overflow-hidden shadow-card bg-[#1a0d12] tilt-layer" style={{ '--depth': '0px' }}>
               <div
-                className="absolute inset-0 breathe"
-                style={{
-                  backgroundImage: `url(${coachPhoto})`,
-                  backgroundSize: '200% auto',
-                  backgroundPosition: '50% 32%',
-                  backgroundRepeat: 'no-repeat',
-                }}
+                className="absolute inset-0 coach-photo breathe"
+                style={{ backgroundImage: `url(${coachPhoto})` }}
               />
 
-              {/* Verified badge */}
-              <div className="absolute top-2.5 right-2.5 z-20 flex items-center gap-1 bg-white/95 backdrop-blur px-2 py-0.5 rounded-full shadow-soft">
+              {/* Cursor glow overlay */}
+              <div className="absolute inset-0 cursor-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Soft top sheen */}
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white/15 to-transparent pointer-events-none z-10" />
+
+              {/* Verified badge — floats above */}
+              <div className="absolute top-2.5 right-2.5 z-30 flex items-center gap-1 bg-white/95 backdrop-blur px-2 py-0.5 rounded-full shadow-card tilt-layer" style={{ '--depth': '40px' }}>
                 <BadgeCheck size={11} className="text-emerald-600" />
                 <span className="text-[9px] font-semibold text-[#1a0d12]/80 tracking-wide">Verified</span>
               </div>
 
               {/* Bottom vignette */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 via-black/20 to-transparent pointer-events-none z-10" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 via-black/15 to-transparent pointer-events-none z-10" />
 
-              {/* Name card */}
-              <div className="absolute left-2.5 right-2.5 bottom-2.5 z-20 bg-white/95 backdrop-blur rounded-lg px-3 py-2 shadow-soft">
+              {/* Name card — floats above */}
+              <div className="absolute left-2.5 right-2.5 bottom-2.5 z-30 bg-white/95 backdrop-blur rounded-lg px-3 py-2 shadow-card tilt-layer" style={{ '--depth': '50px' }}>
                 <p className="text-[8px] tracking-[0.2em] uppercase font-semibold text-[#1a0d12]/50">
                   Skill Coach &amp; Mentor
                 </p>
@@ -52,17 +81,17 @@ const About = () => {
               </div>
             </div>
 
-            {/* Floating expertise tags — tight to photo */}
-            <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-4 z-30 reveal" style={{ animationDelay: '0.3s' }}>
+            {/* Floating expertise tags — pop out in 3D */}
+            <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-4 z-40 reveal tilt-layer" style={{ animationDelay: '0.3s', '--depth': '60px' }}>
               <ExpertiseTag tag={expertiseTags[0]} delay="0s" />
             </div>
-            <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-4 z-30 reveal" style={{ animationDelay: '0.45s' }}>
+            <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-4 z-40 reveal tilt-layer" style={{ animationDelay: '0.45s', '--depth': '70px' }}>
               <ExpertiseTag tag={expertiseTags[1]} delay="0.8s" accent="from-fuchsia-500 to-rose-500" />
             </div>
-            <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-4 z-30 reveal" style={{ animationDelay: '0.6s' }}>
+            <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-4 z-40 reveal tilt-layer" style={{ animationDelay: '0.6s', '--depth': '70px' }}>
               <ExpertiseTag tag={expertiseTags[2]} delay="1.6s" accent="from-sky-500 to-indigo-500" />
             </div>
-            <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-4 z-30 reveal" style={{ animationDelay: '0.75s' }}>
+            <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-4 z-40 reveal tilt-layer" style={{ animationDelay: '0.75s', '--depth': '60px' }}>
               <ExpertiseTag tag={expertiseTags[3]} delay="2.4s" accent="from-emerald-500 to-teal-500" />
             </div>
           </div>
