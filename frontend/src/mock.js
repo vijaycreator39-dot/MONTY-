@@ -72,18 +72,23 @@ export const expertiseTags = [
 
 export const achievements = [
   {
+    type: 'image',
     title: 'iPhone Purchased',
     subtitle: 'First milestone — bought from freelancing income',
     detail: 'Year 1 · From scratch to first major buy',
-    image: 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=800&h=600&fit=crop&q=85',
+    media: 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=900&h=900&fit=crop&q=85',
     accent: 'from-amber-400/30 to-rose-400/20',
+    badge: 'iPhone Milestone',
   },
   {
+    type: 'video',
     title: 'MacBook Purchased',
-    subtitle: 'Upgrade unlocked — earned through Meta Ads agency',
-    detail: 'Year 2 · A symbol of consistent growth',
-    image: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=800&h=600&fit=crop&q=85',
-    accent: 'from-sky-400/30 to-indigo-400/20',
+    subtitle: 'Upgrade unlocked — earned through Meta Ads agency. A symbol of consistent growth and discipline that started from one skill: running ads.',
+    detail: 'Year 2 · The dream upgrade, earned 100% from skills',
+    media: 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/itc6z2cd_VID_20260428_122053_541.mp4',
+    poster: '/media/macbook-poster.jpg',
+    accent: 'from-sky-400/25 to-indigo-400/20',
+    badge: 'MacBook Unboxing',
   },
 ];
 
