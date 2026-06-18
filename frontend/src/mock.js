@@ -19,40 +19,36 @@ export const avatars = [
 
 export const partners = ['SkillUp India', 'LearnLeads', 'Side Hustle Club', 'EarnFromHome.in'];
 
-// Student feedback testimonials — video format
-// User has videos but not yet uploaded to YouTube. Replace `videoUrl` with YouTube embed URLs when ready.
+// Student feedback — 2 image-style WhatsApp chat screenshots + 1 video testimonial.
+// Images & videos must be shown WITHOUT crop (object-contain).
 export const testimonials = [
   {
-    name: 'Sonam',
-    badge: 'Skill Earner',
-    label: 'Live Session with Vijay',
-    text: 'Real journey, real growth — direct from a student’s voice.',
-    poster: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=750&fit=crop&q=80',
-    videoUrl: '',
-  },
-  {
-    name: 'Aakash Patel',
-    badge: 'Top Performer',
-    label: 'Live Session with Vijay',
-    text: 'Hands-on mentorship — see exactly how growth is built.',
-    poster: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=750&fit=crop&q=80',
-    videoUrl: '',
-  },
-  {
-    name: 'Neha',
-    badge: 'Career Switcher',
-    label: 'Skill Update',
-    text: 'Confidence aaya, step-by-step skills develop hui — aaj jo growth hai usme bada contribution hai.',
-    poster: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=750&fit=crop&q=80',
-    videoUrl: '',
-  },
-  {
+    id: 'riddhi',
     name: 'Riddhi',
+    type: 'image',
     badge: 'MacBook Buyer',
-    label: 'Achievement Story',
-    text: 'MacBook purchase kiya — sirf gadget nahi, ek achievement hai. Skills, growth aur self-belief sikhaya.',
-    poster: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&h=750&fit=crop&q=80',
-    videoUrl: '',
+    label: 'WhatsApp Chat',
+    text: 'MacBook purchase kiya — sirf gadget nahi, ek achievement hai. Vijay sir ki guidance ne skills, growth aur self-belief sikhaya. Grateful to have a mentor like him.',
+    media: 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/dg6qzl84_Screenshot_20260608_235938.jpg.jpeg',
+  },
+  {
+    id: 'student-video',
+    name: 'Student Testimonial',
+    type: 'video',
+    badge: 'Live Feedback',
+    label: 'Voice Note',
+    text: 'Direct from a student — real journey, real growth shared in their own words.',
+    media: 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/2wvny21f_lv_0_20260608195542.mp4',
+    poster: '/media/student-poster.jpg',
+  },
+  {
+    id: 'neha',
+    name: 'Neha',
+    type: 'image',
+    badge: 'Career Growth',
+    label: 'WhatsApp Chat',
+    text: 'Confidence aaya, step-by-step skills develop hui. Aaj jo growth ho rahi hai usme Vijay sir ka bahut bada contribution hai. Thank you sir.',
+    media: 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/2q13qqvb_Screenshot_20260609_000517.jpg.jpeg',
   },
 ];
 
@@ -70,20 +66,12 @@ export const expertiseTags = [
   { label: '₹70L+ Earned', icon: 'TrendingUp' },
 ];
 
+// Achievements — only MacBook for now. iPhone will be added when assets are ready.
 export const achievements = [
-  {
-    type: 'image',
-    title: 'iPhone Purchased',
-    subtitle: 'First milestone — bought from freelancing income',
-    detail: 'Year 1 · From scratch to first major buy',
-    media: 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=900&h=900&fit=crop&q=85',
-    accent: 'from-amber-400/30 to-rose-400/20',
-    badge: 'iPhone Milestone',
-  },
   {
     type: 'video',
     title: 'MacBook Purchased',
-    subtitle: 'Upgrade unlocked — earned through Meta Ads agency. A symbol of consistent growth and discipline that started from one skill: running ads.',
+    subtitle: 'Upgrade unlocked — earned through the Meta Ads agency. A symbol of consistent growth and discipline, built from a single skill: running ads.',
     detail: 'Year 2 · The dream upgrade, earned 100% from skills',
     media: 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/itc6z2cd_VID_20260428_122053_541.mp4',
     poster: '/media/macbook-poster.jpg',
@@ -96,24 +84,33 @@ export const whatsappNumber = '917206523178';
 export const instagramLink = 'https://www.instagram.com/vijayadz_';
 export const coachPhoto = 'https://customer-assets.emergentagent.com/job_landing-preview-112/artifacts/4srb30xz_WhatsApp%20Image%202026-06-11%20at%2016.34.06.jpeg';
 
-// Rotating professional English greetings — picked randomly each time WhatsApp is opened.
+// Professional English WhatsApp greetings — rotated randomly on every click.
 export const whatsappGreetings = [
-  "Hello Vijay, I just visited your website and I'd love to learn more about your mentorship program. Could you please share the details?",
-  "Hi Vijay, I'm interested in building my own income from home. Can you walk me through how your coaching works?",
-  "Hello Vijay, I came across your landing page and I'm seriously considering joining your mentorship. Please share the next steps.",
-  "Hi Vijay, I want to start my journey towards financial independence. Could you guide me on how to begin?",
-  "Hello Vijay, your story really resonated with me. I'd like to know more about your 1-on-1 mentorship program.",
-  "Hi Vijay, I'm ready to learn Meta Ads and freelancing skills. Please share more about your coaching program.",
-  "Hello Vijay, I'd like to reserve a mentorship slot. Could you please confirm availability and the next steps?",
+  "Hello Vijay, I just visited your landing page and I'm really interested in your 1-on-1 mentorship program. Could you please share the details and the next steps?",
+  "Hi Vijay, I'd like to learn more about how to build an independent income with Meta Ads and freelancing. Could you guide me through your coaching process?",
+  "Hello Vijay, your work and student results genuinely inspired me. I'd love to know how I can join your mentorship and start my own journey.",
+  "Hi Vijay, I'm ready to take action and start earning from home. Please share the details of your program along with the current availability of slots.",
+  "Hello Vijay, I came across your landing page today and I'd like to reserve a mentorship slot. Could you confirm the availability for this week?",
+  "Hi Vijay, I want to seriously upgrade my skills and create my own freelancing income. Could you share how your 1-on-1 mentorship works?",
+  "Hello Vijay, I'd like to begin my journey towards financial independence with proper guidance. Please let me know how we can get started.",
+  "Hi Vijay, I'm interested in joining your skill-coaching program. Could you walk me through the structure, support, and roadmap you provide?",
+  "Hello Vijay, I'd like to understand how your students are building consistent income through Meta Ads. Please share the program details with me.",
+  "Hi Vijay, I'd genuinely like to work with you and grow under your mentorship. Kindly share the details so we can move forward.",
 ];
 
+let lastGreetingIndex = -1;
 export const getWhatsappUrl = () => {
-  const msg =
-    whatsappGreetings[Math.floor(Math.random() * whatsappGreetings.length)];
+  let idx = Math.floor(Math.random() * whatsappGreetings.length);
+  // ensure rotation — never the same as the previous click
+  if (whatsappGreetings.length > 1 && idx === lastGreetingIndex) {
+    idx = (idx + 1) % whatsappGreetings.length;
+  }
+  lastGreetingIndex = idx;
+  const msg = whatsappGreetings[idx];
   return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 };
 
-// Static fallback for non-JS contexts
+// Static fallback for non-JS contexts (used as the link href)
 export const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappGreetings[0])}`;
 
 export const openWhatsapp = (e) => {

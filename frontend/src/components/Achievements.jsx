@@ -27,7 +27,7 @@ const Achievements = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-5 sm:gap-7 max-w-md sm:max-w-lg mx-auto">
           {achievements.map((a, i) => (
             <AchievementCard key={a.title} a={a} index={i} />
           ))}
@@ -93,7 +93,7 @@ const AchievementCard = ({ a, index }) => {
       <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#4a1024]/25 via-[#d4a574]/30 to-[#4a1024]/25 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
 
       {/* Media area - NO CROP, contain inside dark frame */}
-      <div className="relative aspect-[4/5] sm:aspect-[5/4] bg-gradient-to-br from-[#1a0d12] via-[#2a0812] to-[#3a0e1c] overflow-hidden tilt-layer" style={{ '--depth': '0px' }}>
+      <div className="relative aspect-[4/5] sm:aspect-square bg-gradient-to-br from-[#1a0d12] via-[#2a0812] to-[#3a0e1c] overflow-hidden tilt-layer" style={{ '--depth': '0px' }}>
         {/* Cursor glow */}
         <div className="absolute inset-0 cursor-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
 
