@@ -26,7 +26,6 @@ const SignupForm = () => {
     }
     setLoading(true);
 
-    // Build pre-filled WhatsApp message so the lead reaches Vijay directly
     const lines = [
       `Hi Vijay, I just reserved my spot on your website.`,
       ``,
@@ -42,17 +41,20 @@ const SignupForm = () => {
     const leadUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
     setTimeout(() => {
-      try {
-        const existing = JSON.parse(localStorage.getItem('vr_signups') || '[]');
-        existing.push({ ...form, at: new Date().toISOString() });
-        localStorage.setItem('vr_signups', JSON.stringify(existing));
-      } catch {}
       setLoading(false);
       toast({
         title: 'Spot reserved!',
         description: 'Opening WhatsApp to connect you with Vijay…',
       });
-      // Redirect to WhatsApp so the lead is delivered
+
+      // Meta Pixel Lead Event
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Mentorship Signup',
+          content_category: 'WhatsApp Lead'
+        });
+      }
+
       window.open(leadUrl, '_blank');
       setForm({ name: '', whatsapp: '', age: '', gender: '', city: '', profession: '', goal: '' });
     }, 600);
@@ -82,7 +84,7 @@ const SignupForm = () => {
             <span className="font-serif-italic text-[#4a1024]">starts today</span>
           </h2>
           <p className="mt-4 sm:mt-5 text-[14px] sm:text-[16px] text-[#1a0d12]/65 max-w-md mx-auto">
-            Fill the form below. Within minutes you’ll be connected with Vijay on WhatsApp.
+            Fill the form below. Within minutes you'll be connected with Vijay on WhatsApp.
           </p>
         </div>
 
@@ -159,7 +161,7 @@ const SignupForm = () => {
             </div>
 
             <div>
-              <label className="block text-[12px] sm:text-[13px] font-semibold text-[#1a0d12] mb-2">What’s your goal?</label>
+              <label className="block text-[12px] sm:text-[13px] font-semibold text-[#1a0d12] mb-2">What's your goal?</label>
               <select value={form.goal} onChange={set('goal')} className={inputCls}>
                 <option value="">Pick what fits you best</option>
                 <option>Skill learning — I want to learn new skills</option>
@@ -179,7 +181,7 @@ const SignupForm = () => {
             </button>
 
             <p className="text-center text-[12px] sm:text-[13px] text-[#1a0d12]/55">
-              Either Vijay will WhatsApp you, or your spot will be reserved and he’ll reach out within 24 hours.
+              Either Vijay will WhatsApp you, or your spot will be reserved and he'll reach out within 24 hours.
             </p>
             <div className="flex items-center justify-center gap-1.5 text-[11px] sm:text-[12px] text-[#1a0d12]/50">
               <Lock size={12} />
