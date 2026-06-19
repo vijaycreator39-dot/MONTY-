@@ -47,24 +47,24 @@ const Hero = () => {
           home, without prior experience.
         </p>
 
-        {/* CTA buttons */}
-        <div className="reveal mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3" style={{ animationDelay: '0.3s' }}>
-    <a
-  href="#signup"
-  className="btn-shine glow-green group inline-flex items-center gap-2.5 bg-gradient-to-b from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-semibold text-[13px] sm:text-[15px] transition-all duration-300 hover:scale-[1.05] hover:-translate-y-0.5"
-            <MessageCircle size={17} />
-            Message Me on WhatsApp
-            <Sparkles size={15} className="opacity-80 group-hover:rotate-12 transition-transform" />
-          </a>
-          <a
-            href="#results"
-            className="btn-shine inline-flex items-center gap-2 bg-white hover:bg-white/90 border border-[#4a1024]/15 text-[#1a0d12] px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-semibold text-[13px] sm:text-[15px] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 shadow-soft"
-          >
-            See Student Results
-            <ArrowRight size={15} />
-          </a>
-        </div>
-
+{/* CTA buttons */}
+<div className="reveal mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3" style={{ animationDelay: '0.3s' }}>
+  <a
+    href="#signup"
+    className="btn-shine glow-green group inline-flex items-center gap-2.5 bg-gradient-to-b from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-semibold text-[13px] sm:text-[15px] transition-all duration-300 hover:scale-[1.05] hover:-translate-y-0.5"
+  >
+    <MessageCircle size={17} />
+    Reserve My Spot
+    <Sparkles size={15} className="opacity-80 group-hover:rotate-12 transition-transform" />
+  </a>
+  <a
+    href="#results"
+    className="btn-shine inline-flex items-center gap-2 bg-white hover:bg-white/90 border border-[#4a1024]/15 text-[#1a0d12] px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-semibold text-[13px] sm:text-[15px] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 shadow-soft"
+  >
+    See Student Results
+    <ArrowRight size={15} />
+  </a>
+</div>
         {/* Slots tracker */}
         <div className="reveal mt-10 sm:mt-14 max-w-xl mx-auto bg-white rounded-2xl border border-[#4a1024]/10 p-4 sm:p-5 shadow-card text-left lift" style={{ animationDelay: '0.4s' }}>
           <div className="flex items-center justify-between mb-3">
